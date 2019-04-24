@@ -1,0 +1,66 @@
+   [0:v]split=11 [in1][in2][in3][in4][in5][in6][in7][in8][in9][in10][in11];
+   [1:v]split[in12][in13];
+color=c=0x5e9969:s=5280x720:d=10[pgrn1];
+   [pgrn1]chromakey=0x5e9969:0.07:0.02[pgrn2];
+   [in1]chromakey=0x5e9969:0.07:0.02[in1a];
+   [in1a]colorchannelmixer=aa=0.75[in1b];
+   [pgrn2][in1b]overlay=x=4000:y=0[ovl1];
+
+   [in2]chromakey=0x5e9969:0.07:0.02[ck2];
+   [ck2]colorchannelmixer=aa=0.75[ck2a];
+   [ovl1][ck2a]overlay=x=3600:y=0[ovl2];
+
+   [in3]chromakey=0x5e9969:0.07:0.02[ck3];
+   [ck3]colorchannelmixer=aa=0.75[ck3a];
+   [ovl2][ck3a]overlay=x=3200:y=0[ovl3];
+
+   [in4]chromakey=0x5e9969:0.07:0.02[ck4];
+   [ck4]colorchannelmixer=aa=0.75[ck4a];
+   [ovl3][ck4a]overlay=x=2800:y=0[ovl4];
+
+   [in5]chromakey=0x5e9969:0.07:0.02[ck5];
+   [ck5]colorchannelmixer=aa=0.75[ck5a];
+   [ovl4][ck5a]overlay=x=2400:y=0[ovl5];
+
+   [in6]chromakey=0x5e9969:0.07:0.02[ck6];
+   [ck6]colorchannelmixer=aa=0.75[ck6a];
+   [ovl5][ck6a]overlay=x=2000:y=0[ovl6];
+
+   [in7]chromakey=0x5e9969:0.07:0.02[ck9];
+   [ck9]colorchannelmixer=aa=0.75[ck9a];
+   [ovl6][ck9a]overlay=x=1600:y=0[ovl9];
+
+   [in8]chromakey=0x5e9969:0.07:0.02[ck10];
+   [ck10]colorchannelmixer=aa=0.75[ck10a];
+   [ovl9][ck10a]overlay=x=1200:y=0[ovl10];
+
+   [in9]chromakey=0x5e9969:0.07:0.02[ck11];
+   [ck11]colorchannelmixer=aa=0.75[ck11a];
+   [ovl10][ck11a]overlay=x=800:y=0[ovl11];
+
+   [in10]chromakey=0x5e9969:0.07:0.02[ck12];
+   [ck12]colorchannelmixer=aa=0.75[ck12a];
+   [ovl11][ck12a]overlay=x=400:y=0[ovl12];
+   
+   [in11]chromakey=0x5e9969:0.07:0.02[ck13];
+   [ck13]colorchannelmixer=aa=0.75[ck13a];
+   [ovl12][ck13a]overlay=x=0:y=0[ovl13];
+
+   [in12]scale=1.4*iw:-1, crop=iw:ih:x=0:y=50[cr7];
+   [cr7]chromakey=0x5e9969:0.07:0.01[ck7];
+   [ck7]colorchannelmixer=aa=0.95[ck7a];
+   [ovl13][ck7a]overlay=x=1700:y=0[ovl7];
+
+   [in13]scale=1.4*iw:-1, crop=iw:ih:x=0:y=50[cr8];
+   [cr8]chromakey=0x5e9969:0.07:0.01[ck8];
+   [ck8]colorchannelmixer=aa=0.95[ck8a];
+   [ovl7][ck8a]overlay=x=2500:y=0[ovl8];
+   [ovl8]setpts=1.4*PTS[slow];
+
+color=c=0xffffff:s=1280x720:d=9[bkg];
+   [bkg][slow]overlay=x='if(gte(t,0), -4000+(t)*550, 0)':y=0[bnw];
+   [bnw]format=gray[bnwout];
+   [bnwout][3]overlay[png];
+   [4]setpts=PTS-STARTPTS+10/TB[top];
+   [png][top]overlay=enable='between(t\,10,12)'[vid];
+   [2:a]volume=volume=0.4[aud]

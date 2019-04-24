@@ -1,0 +1,44 @@
+*********************************************************************************
+************************  AHK FFMPEG CHROMA SCRIPT ******************************
+*********************************************************************************
+
+INSTRUCCIONES :
+
+- Instalar ffmpeg.zip en cada computadora que se quiera utilizar
+	http://adaptivesamples.com/how-to-install-ffmpeg-on-windows/
+	1- Descomprimir .zip en una carpeta de fácil acceso, como C:\ffmpeg 
+	2- Click derecho sobre la carpeta "Computer"(o "Mi PC" o "Este Equipo"), elegir la opción Propiedades
+	3- Ir a "Configuración avanzada del equipo" o "Advanced system settings"
+	4- Clickear "Variables de entorno" o "Environment Variables"
+	5- System variables / Path , click en Editar
+	6- Agregar al final de la lista :   ;c:\ffmpeg\bin 
+	7- Listo!
+
+- De querer cambiar la música, reemplazar el archivo "music.mp3" por otro archivo .mp3 y renombrar para que se siga llamando "music.mp3"
+- En cada evento, correr el script de Auto Hot Key (en este caso, scriptchroma.ahk)
+- Guardar los videos a editar en la carpeta "video" 
+- Los videos editados se guardarán automáticamente en la carpeta "final" 
+
+**!IMPORTANTE!** NO modificar el nombre de ninguna carpeta, ni mover alguno de los archivos por separado ! La estructura de la carpeta siempre debe ser :
+
+-/CarpetaDelEvento :
+----/video
+----/temp
+----/final
+----music.mp3
+----scriptchroma.ahk
+----scriptchroma.txt
+----logo.mp4
+----logo.png
+
+
+CARACTERÍSTICAS SCRIPT CHROMA:
+
+- Video IN: 1920x1080px 9" .mov
+- Video OUT: 1920x1080px 12" .mp4 25fps 6-12Mb
+- Tiempo de conversion: aprox 5-8 minutos
+
+A TENER EN CUENTA:
+
+- Para mejorar el recorte de croma hay que poner el modo de medicion de luz en: Spot/Partial (probar) ya que con la Evaluative que viene predeterminada el recorte se hace mal.
+- Tambien hay que desactivar la exposicion automatica en video y dejarla fija
