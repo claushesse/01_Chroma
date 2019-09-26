@@ -1,19 +1,4 @@
 ;----------------------------------------------------------------------------------
-; AutoHotkey script which automatically creates compressed MP4 copies of the
-; uncompressed AVI video files created by Webcam Photobooth.
-;
-; Simply double click on webcam_photobooth_video_convert.ahk in Windows Explorer to run this script then
-; run Webcam Photobooth. The script will monitor the video dolfer for MOV files and 
-; automatically create a compressed MP4 copy in the video subfolder.
-;
-; AutoHotKey is free and can be downloaded from:
-; http://www.autohotkey.com
-;
-; This script is designed to work with Webcam Photobooth v1.1 or later.
-;
-; This script comes with no warranty or support whatsoever and may
-; be freely copied or modified as required.
-;
 ; Written by
 ; Martina Colmenero - https://github.com/martucol 
 ; Claus Hesse - https://claushesse.github.io/colisiones/
