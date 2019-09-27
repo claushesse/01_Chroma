@@ -2,7 +2,7 @@
 ;----------------------------------------------------------------------------------
 ; Written by
 ; Martina Colmenero - https://github.com/martucol 
-; Claus Hesse - https://claushesse.github.io/colisiones/
+; Claus Hesse - https://github.com/claushesse
 ;----------------------------------------------------------------------------------
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
